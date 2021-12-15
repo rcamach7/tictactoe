@@ -1,3 +1,49 @@
 html {
-    background-color: aliceblue;
+    text-align: center;
 }
+
+#root {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    min-height: 60px;
+    min-width: 60px;
+
+    font-size: 50px;
+    padding: 10px;
+}
+
+.box:hover {
+    background-color: antiquewhite;
+}
+
+/* Styling for board*/
+#b0, #b1, #b2 {
+  border-bottom: solid black 2px;
+}
+#b0, #b1 {
+    border-right: solid black 2px
+}
+#b3, #b4, #b5 {
+    border-bottom: solid black 2px;
+}
+#b3, #b4 {
+    border-right: solid black 2px
+}
+#b6, #b7 {
+    border-right: solid black 2px
+}
+
+#resetGame {
+    margin-top: 50px;
+}
+
+
+
+
