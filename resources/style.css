@@ -1,8 +1,22 @@
 html {
     text-align: center;
+    font-family: "Lucida Grande", serif;
+}
+
+body {
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    padding: 10px;
+
+    background-color: black;
+    color: white;
 }
 
 #root {
+    margin-top: 25px;
     width: 100%;
 }
 
@@ -20,28 +34,54 @@ html {
 }
 
 .box:hover {
-    background-color: antiquewhite;
+    background-color: #b7b7b7;
 }
 
 /* Styling for board*/
 #b0, #b1, #b2 {
-  border-bottom: solid black 2px;
+  border-bottom: solid black 4px;
 }
 #b0, #b1 {
-    border-right: solid black 2px
+    border-right: solid black 4px
 }
 #b3, #b4, #b5 {
-    border-bottom: solid black 2px;
+    border-bottom: solid black 4px;
 }
 #b3, #b4 {
-    border-right: solid black 2px
+    border-right: solid black 4px
 }
 #b6, #b7 {
-    border-right: solid black 2px
+    border-right: solid black 4px
 }
 
 #resetGame {
-    margin-top: 50px;
+    margin-top: 20px;
+    width: 250px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#playerTurn {
+    font-size: 30px;
+    font-weight: bolder;
+
+    margin-top: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+    color: white;
 }
 
 

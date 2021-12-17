@@ -30,33 +30,40 @@ const Gameboard = (() => {
         if (currentBoard[0] !== "" && currentBoard[0] === currentBoard[1] && currentBoard[2] === currentBoard[0]) {
             alert(`Winner! Player ${currentBoard[0]} has won the game!`);
             activeGame = false;
+            return;
         } else if(currentBoard[3] !== "" && currentBoard[3] === currentBoard[4] && currentBoard[5] === currentBoard[3]) {
             alert(`Winner! Player ${currentBoard[3]} has won the game!`);
-            activeGame = false;
+            return;
         } else if(currentBoard[6] !== "" && currentBoard[6] === currentBoard[7] && currentBoard[8] === currentBoard[6]) {
             alert(`Winner! Player ${currentBoard[6]} has won the game!`);
             activeGame = false;
+            return;
         }
 
         // Vertical Check
         if (currentBoard[0] !== "" && currentBoard[0] === currentBoard[3] && currentBoard[0] === currentBoard[6]) {
             alert(`Winner! Player ${currentBoard[0]} has won the game!`);
             activeGame = false;
+            return;
         } else if (currentBoard[1] !== "" && currentBoard[1] === currentBoard[4] && currentBoard[1] === currentBoard[7]) {
             alert(`Winner! Player ${currentBoard[1]} has won the game!`);
             activeGame = false;
+            return;
         } else if (currentBoard[2] !== "" && currentBoard[2] === currentBoard[5] && currentBoard[2] === currentBoard[8]) {
             alert(`Winner! Player ${currentBoard[2]} has won the game!`);
             activeGame = false;
+            return;
         }
 
         // Cross Check
         if (currentBoard[0] !== "" && currentBoard[0] === currentBoard[4] && currentBoard[0] === currentBoard[8]) {
             alert(`Winner! Player ${currentBoard[0]} has won the game!`);
             activeGame = false;
+            return;
         } else if (currentBoard[2] !== "" && currentBoard[2] === currentBoard[4] && currentBoard[2] === currentBoard[6]) {
             alert(`Winner! Player ${currentBoard[2]} has won the game!`);
             activeGame = false;
+            return;
         }
 
         // Check to see if the board is full - if so -declare a tie and reset board.
@@ -85,12 +92,16 @@ const Gameboard = (() => {
     const isGameActive = () => {
         return activeGame;
     }
+    const getPlayer = () => {
+        return currentPlayerSymbol;
+    }
     return {
         copyOfBoard,
         move,
         checkForWinner,
         isGameActive,
         resetBoard,
+        getPlayer
     }
 })();
 
@@ -111,6 +122,10 @@ function displayBoard() {
             if (box.textContent === "" && Gameboard.isGameActive()) {
                 let location = parseInt(box.id.substring(1));
                 box.textContent = Gameboard.move(location);
+                
+                // Player Turn
+                const turn = document.getElementById("playerTurn");
+                turn.textContent = `Turn: ${Gameboard.getPlayer()}`
 
                 // Check For Winner
                 Gameboard.checkForWinner();
@@ -128,7 +143,6 @@ function displayBoard() {
             root.appendChild(box);
         }
     }
-
 }
 
 const resetBtn = document.getElementById("resetGame");
